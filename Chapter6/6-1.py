@@ -1,0 +1,1 @@
+print(sum(list(eval(input()))))
