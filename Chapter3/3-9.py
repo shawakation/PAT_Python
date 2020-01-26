@@ -1,9 +1,14 @@
 s=input()[:-1]
-s=s.lower()
-signs='abcdef'
-s2=''
+s2=s
+signs='0123456789ABCDEFabcdef'
 for i in s:
-    if i in signs or i.isdigit() or i=='-':
-        s2+=i
-s2='-'+s2.replace('-','') if s2[0]=='-' else s2.replace('-','')
-print(int(s2,16))
+    if i not in signs:
+        s=s.replace(i,'')
+flag=0
+for i in s2:
+    if i in signs:
+        flag=s2.find(i)
+        break
+if '-' in s2[:flag]:
+    s='-'+s
+print('0' if len(s)==0 else int(s,16))
